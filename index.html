@@ -122,17 +122,17 @@
   .btn-butter{background:var(--butter);color:var(--choc)}
 
   .hero-stickers{
-    position:relative;height:170px;margin:30px auto 0;max-width:420px;
+    position:relative;margin:30px auto 0;max-width:420px;
+    display:grid;grid-template-columns:1fr 1fr;grid-template-areas:"m m" "a b";
+    gap:18px 14px;align-items:center;
   }
-  .hero-stickers > *{position:absolute}
-  .mascot{width:150px;left:50%;margin-left:-75px;top:0;animation:bob 3.2s ease-in-out infinite}
-  @keyframes bob{50%{transform:translateY(-8px) rotate(2deg)}}
+  .mascot{grid-area:m;justify-self:center;width:140px;animation:bob 3.2s ease-in-out infinite}
   .chip{
-    z-index:2;    font-family:var(--hand);font-size:20px;line-height:1.1;
-    padding:10px 16px;border-radius:22px;
+    z-index:2;font-family:var(--hand);font-size:19px;line-height:1.15;
+    padding:10px 14px;border-radius:22px;text-align:center;
   }
-  .chip-1{left:0;top:22px;background:var(--butter);transform:rotate(-8deg)}
-  .chip-2{right:0;top:58px;background:var(--pink-lt);transform:rotate(7deg)}
+  .chip-1{grid-area:a;justify-self:end;background:var(--butter);transform:rotate(-6deg)}
+  .chip-2{grid-area:b;justify-self:start;background:var(--pink-lt);transform:rotate(6deg)}
 
   /* ---------- marquee ---------- */
   .marquee{
@@ -327,7 +327,11 @@
     body{padding-bottom:0}
     .nav-links{display:flex}
     .hero{padding:34px 0 50px}
-    .hero-stickers{max-width:620px;height:190px}
+    .hero-stickers{display:block;max-width:640px;height:190px}
+    .hero-stickers > *{position:absolute}
+    .mascot{width:150px;left:50%;margin-left:-75px;top:0}
+    .chip-1{left:0;top:22px;transform:rotate(-8deg)}
+    .chip-2{right:0;top:58px;transform:rotate(7deg)}
     .chip{font-size:24px}
     .flavours{grid-template-columns:repeat(4,1fr);gap:22px}
     .flav.feature{grid-column:span 4}
@@ -483,8 +487,7 @@
       </div>
       <div class="q" data-peel>
         <svg class="svg-sticker" viewBox="0 0 220 220">
-          <circle cx="110" cy="110" r="98" fill="#3E2117" stroke="#FFF9F1" stroke-width="12"/>
-          <path d="M22 92 Q14 40 60 28 Q110 4 160 28 Q206 40 198 92 Q190 96 186 86 Q184 118 172 92 Q160 104 152 84 Q146 122 134 86 Q120 98 110 82 Q100 112 88 84 Q76 100 66 84 Q58 116 50 86 Q40 100 34 86 Q30 98 22 92Z" fill="#F5A8BB"/>
+          <clipPath id="dripClip"><circle cx="110" cy="110" r="98"/></clipPath><circle cx="110" cy="110" r="98" fill="#3E2117"/><g clip-path="url(#dripClip)"><rect x="0" y="0" width="220" height="60" fill="#F5A8BB"/><path d="M22 92 Q14 40 60 28 Q110 4 160 28 Q206 40 198 92 Q190 96 186 86 Q184 118 172 92 Q160 104 152 84 Q146 122 134 86 Q120 98 110 82 Q100 112 88 84 Q76 100 66 84 Q58 116 50 86 Q40 100 34 86 Q30 98 22 92Z" fill="#F5A8BB"/></g><circle cx="110" cy="110" r="98" fill="none" stroke="#FFF9F1" stroke-width="12"/>
           <text x="110" y="142" text-anchor="middle" font-size="50" fill="#F5A8BB">BRWNi</text>
           <text class="h" x="110" y="176" text-anchor="middle" font-size="20" fill="#F5A8BB">made with love ♡</text>
         </svg>
